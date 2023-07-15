@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color: rgba(2, 2, 2, 0.185);
+}
+
+
+::-webkit-scrollbar{
+  width: 0px;
+  
+}
