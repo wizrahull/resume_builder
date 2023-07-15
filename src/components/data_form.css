@@ -8,10 +8,16 @@
      margin-left: 7%;
      color: aliceblue;
      margin-top: 1%;
+     margin-bottom: 4%;
      display:grid;
+
      padding: 3%;
 }
 
+avatar-img{
+
+    width:80px;
+}
 
 .outer-box > label {
     padding: 12px;

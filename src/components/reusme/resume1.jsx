@@ -1,24 +1,12 @@
 import React from "react";
-import Data_form from "../data_form";
+import './resume1.css'
 export default function Resume1(props){
-
-
-    console.log(Data_form)
-
-
-
-
-
-
-
-
-
-
 
     return(
                 <div className="resume-box">
 
                         < div className="resume-header">
+                            <img id='avatar-img'    alt="avatar" src={props.image} />
                             <h4>{props.name}</h4>
                         </div>
                         <div className="resume-body">
