@@ -49,7 +49,7 @@ export default function Data_form(props){
     form_data.append('email', email)
     console.log(form_data['email'])
     console.log(email)
-    alert("email   "  + name )
+    // alert("email   "  + name )
 
     setResult_show(true)
     setShow_form(false)

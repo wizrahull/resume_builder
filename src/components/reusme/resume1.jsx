@@ -6,22 +6,28 @@ export default function Resume1(props){
 
     // style={{color: "red" ,width:"200px"}}/
     function download_resume(){
+        const margins = {
+            top: 40,
+            bottom: 60,
+            left: 0,
+            width: 522
+          };
 
-        const pdf =new JsPDF('landscape','pt','a3');
-
-        pdf.html(document.querySelector(".resume-box")).then(()=> {
+        const pdf =new JsPDF('l','pt','a4');
+        pdf.html(margins.left)
+        pdf.html(  document.querySelector(".resume-box")).then(()=> {
             pdf.save('resume.pdf')
         })
     }
     return(
 
-        <>
+       <div id="outer-box">
                 <div className="resume-box">
 
                         < div className="resume-header">
                             <img id='avatar-img'    alt="avatar" src={props.image} />
                             <h4>{props.name}</h4>
-                            <hr />
+                            <hr style={{width: "100%"}}/>
                         </div>
                         
                         <div className="resume-body">
@@ -72,8 +78,8 @@ export default function Resume1(props){
 
 
                 </div>
-                <button   onClick={download_resume}> Save </button>
-                </>
+                <button id="download-resume"  onClick={download_resume}> Save </button>
+                </div>
 
     )
 }
