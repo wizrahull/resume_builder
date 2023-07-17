@@ -4,13 +4,31 @@ import './data_form.css'
 import Resume1 from './reusme/resume1'
 export default function Data_form(props){
     // window.onload= result_show()
+
+
+// push method
+    // const things=['helo', 'new'];
+    // const things_p= things.map(thinggxx=>  <p>{thinggxx}</p>) 
+
+    // function addItee(){
+    //     const newItem= `things ${things.length+1}`
+    //     thing.push(newItem)
+    // }
+     
+    // return (
+    //     {thinggxx}
+    // )
+
+    //{props.experience==0 && <div>Entry Level </>}
     const [result_show,setResult_show] = useState(false)
-    const [show_form,setShow_form] = useState(true)
+    const [show_form,setShow_form] = useState(true) 
 
     // const file=useRef(null)
-    const [image, setImage] = useState("./reusme/avatar.png")
+    const [image, setImage] = useState("./src/avatar.png")
 
    const [name,setName] = useState("")
+
+   const [phone,setPhone] = useState("")
    const [email,setEmail] = useState("")
    const [address,setAddress] = useState("")
 
@@ -31,7 +49,7 @@ export default function Data_form(props){
     form_data.append('email', email)
     console.log(form_data['email'])
     console.log(email)
-    // alert("email   "  + email )
+    alert("email   "  + name )
 
     setResult_show(true)
     setShow_form(false)
@@ -49,18 +67,22 @@ export default function Data_form(props){
  
     return(
 
-<>
+<> 
+{/* value={name} onChange={(e)=>setName(e.target.value)}  */}
         {show_form ?
         <form  onSubmit={handleSubmit}  className="outer-box">
                 <h2 id="title"> Resume Form </h2>
             <label>Name</label>
-            <input type="text"   value={name} onChange={(e)=>setName(e.target.value)}    placeholder="Name"/>
+            <input type="text"    value={name} onChange={(e)=>setName(e.target.value)}    placeholder="Name"/>
 
             <label>Image</label>
-            <input id='avatar-img' type="file"   alt="image"     name={image}      onChange={(e)=>setImage(URL.createObjectURL(e.target.files[0]))}   accept="image/png , image/jpg" placeholder="Upload here"/>
+            <input  type="file"   alt="image"     name={image}      onChange={(e)=>setImage(URL.createObjectURL(e.target.files[0]))}   accept="image/png , image/jpg,image/jpeg" placeholder="Upload here"/>
+
 
             <label>E-mail</label>
             <input type="text"  value={email}  onChange={(e)=>setEmail(e.target.value)}   placeholder="E-mail"/> 
+            <label>Mobile No.</label>
+            <input type="text"    value={phone} onChange={(e)=>setPhone(e.target.value)}    placeholder="Name"/>
 
             <label>Address</label>
             <input type="text" value={address}  onChange={(e)=>setAddress(e.target.value)}    placeholder="Address"/>
@@ -89,13 +111,15 @@ export default function Data_form(props){
            <input type="submit"/>
         </form> : null }
 
-        
+        {/* or we can use     data={data } then in porps props.name will be props.data.name  
+        or we can use {...data}  spread all properties*   porps.image*/ }
 
 
-        {result_show? <Resume1  name={name}   email={email}  address={address }  image={image}
+        {result_show? <Resume1  name={name}   email={email}  address={address } phone={phone}  image={image}
                                 linkedin={linkedin} summary={summary} tech_skills={tech_skills}
                                 ip_skills={ip_skills} education={education} projects={projects}
-                
+                                
+
                 /> : null}
 
 
